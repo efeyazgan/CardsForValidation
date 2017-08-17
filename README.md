@@ -12,22 +12,33 @@ cd CMSSW_9_2_6_patch1/src
 * Make the necessary changes in the input parameters, nevents, gridpack or lhe file location etc. Gridpacks for the examples above can be accessed from /afs/cern.ch/user/e/efe/workspace_afs/public/gridpacks
 
 cd GeneratorInterface/RivetInterface/data
+
 ln -s /afs/cern.ch/user/e/efe/workspace_afs/CMSSW_9_2_6_patch1/src/Rivet/TOP/data/*.yoda
+
 ln -s /afs/cern.ch/user/e/efe/workspace_afs/CMSSW_9_2_6_patch1/src/Rivet/SMP/data/*.yoda
 
 
 
 If you want to use grid-control do:
+
 svn co https://ekptrac.physik.uni-karlsruhe.de/svn/grid-control/tags/stable/grid-control
+
 cd grid-control
+
 ./go.py Production_TT_Powheg_13TeV_CP5.conf -Gc
+
 - this command is used both to submit jobs and also to check the status of the jobs.
+
 For killing jobs: ./go.py Production_TT_Powheg_13TeV_CP5.conf -d all 
 
 Once jobs are done:
+
 source Rivet/rivetSetup.sh
+
 cd batch/output
+
 yodamerge -o merged.yoda outputfolder/*.yoda
+
 rivet-mkhtml merged.yoda (merged2.yoda ets if you have multiple files)
 
 
