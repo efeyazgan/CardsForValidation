@@ -2,6 +2,7 @@
 ### Below are some instructions
 
 kinit username@CERN.CH
+
 cmsrel CMSSW_9_2_6_patch1
 
 cd CMSSW_9_2_6_patch1/src
