@@ -6,7 +6,7 @@ import sys
 
 options = VarParsing.VarParsing ('standard')
 
-options.register('nevents', 500, VarParsing.VarParsing.multiplicity.singleton,VarParsing.VarParsing.varType.int, "Number of events")
+options.register('nevents', 100, VarParsing.VarParsing.multiplicity.singleton,VarParsing.VarParsing.varType.int, "Number of events")
 
 options.register('yoda', 'run.yoda', VarParsing.VarParsing.multiplicity.singleton,VarParsing.VarParsing.varType.string, "YODA output file")
 
