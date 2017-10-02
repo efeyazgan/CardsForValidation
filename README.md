@@ -16,9 +16,9 @@ cd CMSSW_9_2_6_patch1/src
 
 cd GeneratorInterface/RivetInterface/data
 
-ln -s /afs/cern.ch/user/e/efe/workspace_afs/CMSSW_9_2_6_patch1/src/Rivet/TOP/data/*.yoda
+ln -s /afs/cern.ch/user/e/efe/workspace_afs/CMSSW_9_2_6_patch1/src/Rivet/TOP/data/*.yoda .
 
-ln -s /afs/cern.ch/user/e/efe/workspace_afs/CMSSW_9_2_6_patch1/src/Rivet/SMP/data/*.yoda
+ln -s /afs/cern.ch/user/e/efe/workspace_afs/CMSSW_9_2_6_patch1/src/Rivet/SMP/data/*.yoda .
 
 
 
