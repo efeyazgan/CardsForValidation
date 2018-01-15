@@ -9,7 +9,21 @@ cd CMSSW_9_2_6_patch1/src
 
 * Follow the instructions in https://gitlab.cern.ch/cms-gen/Rivet/blob/master/README.md 
   * ignoring the CMSSW version
-  * And you may need to use git clone https://gitlab.cern.ch/cms-gen/Rivet.git 
+  * And you may need to use 
+  
+  git clone https://gitlab.cern.ch/cms-gen/Rivet.git 
+  
+* If you need to checkout an unmerged request:
+      Add the following in Rivet/.git/config:
+      [remote "cms-gen"]
+        url = ssh://git@gitlab.cern.ch:7999/cms-gen/Rivet.git
+        fetch = +refs/heads/*:refs/remotes/cms-gen/*
+        fetch = +refs/merge-requests/*/head:refs/remotes/cms-gen/merge-requests/*
+
+and then
+
+git mr cms-gen 98
+
 * In the examples here, the outputs will be written to CMSSW_9_2_6_patch1/src/batch/output : create those directories.
 * Copy 16008PowhegCP5.py or 16008_Top_FxFx_CP5.py or wjets_cp5.py here. 
 * Make the necessary changes in the input parameters, nevents, gridpack or lhe file location etc. Gridpacks for the examples above can be accessed from /afs/cern.ch/user/e/efe/workspace_afs/public/gridpacks (Note that for FxFx there are two gridpacks, one of top and one for antitop, so, two separate submissions should be done but at the end yoda files should be just merged). 
