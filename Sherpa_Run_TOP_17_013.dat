@@ -1,0 +1,50 @@
+(run){
+  % general setting
+  EVENTS 10000;
+  
+  % set particles with c*tau > 10 mm stable
+  MAX_PROPER_LIFETIME = 10.0;
+
+  % scales, tags for scale variations
+  FSF:=1.; RSF:=1.; QSF:=1.;
+  SCALES METS{FSF*MU_F2}{RSF*MU_R2}{QSF*MU_Q2};
+  CORE_SCALE QCD;
+  METS_BBAR_MODE 5;
+
+  % tags for process setup
+  NJET:=0; LJET:=2; QCUT:=20.;
+
+  % me generator settings
+  ME_SIGNAL_GENERATOR Comix Amegic LOOPGEN;
+  EVENT_GENERATION_MODE Weighted;
+  LOOPGEN:=OpenLoops;
+
+  % collider setup
+  BEAM_1 2212; BEAM_ENERGY_1 = 6500.;
+  BEAM_2 2212; BEAM_ENERGY_2 = 6500.;
+
+  % decays
+  HARD_DECAYS On;
+  STABLE[24] 0; STABLE[6] 0; WIDTH[6] 0;
+
+  NLO_SMEAR_THRESHOLD 1;
+  NLO_SMEAR_POWER 2;
+  
+  REWEIGHT_SPLITTING_ALPHAS_SCALES 1;
+  SCALE_VARIATIONS 0.25,0.25 1.,1. 4.,4.;
+  HEPMC_USE_NAMED_WEIGHTS = 1;
+}(run)
+
+(me){
+  EVENT_GENERATION_MODE = Unweighted;   
+}(me)
+
+(processes){
+  Process : 93 93 ->  6 -6;
+  Order (*,0); CKKW sqr(QCUT/E_CMS);
+  NLO_QCD_Mode MC@NLO {LJET};
+  ME_Generator Amegic {LJET};
+  RS_ME_Generator Comix {LJET};
+  Loop_Generator LOOPGEN {LJET};
+  End process
+}(processes)
