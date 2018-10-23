@@ -1,7 +1,9 @@
 (run){
+  % All shower setttings except SET_PROPER_LIFETIME are just left at the default.
+
   % general setting
   EVENTS 10000;
-  
+
   % set particles with c*tau > 10 mm stable
   MAX_PROPER_LIFETIME = 10.0;
 
